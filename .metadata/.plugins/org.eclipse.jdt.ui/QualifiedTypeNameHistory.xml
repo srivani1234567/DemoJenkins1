@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.pomrepop.Loginpage"/>
+<fullyQualifiedTypeName name="com.pomrepop.Organizationpage"/>
+<fullyQualifiedTypeName name="com.pomrepop.CreateNewOrgpage"/>
+<fullyQualifiedTypeName name="com.pomrepop.CreatenewContact"/>
+<fullyQualifiedTypeName name="org.testng.annotations.AfterSuite"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.FindBy"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.PageFactory"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
+<fullyQualifiedTypeName name="com.pomrepop.CreateNewproductpage"/>
+<fullyQualifiedTypeName name="org.testng.annotations.Test"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.OutputType"/>
+<fullyQualifiedTypeName name="org.apache.commons.io.FileUtils"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="com.generic.Listner"/>
+<fullyQualifiedTypeName name="com.pomrepop.productpage"/>
+<fullyQualifiedTypeName name="com.generic.Baseclass"/>
+<fullyQualifiedTypeName name="com.pomrepop.Homepage"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite  name="Suite" parallel="tests">
+  <test thread-count="5" name="ChromeTest" preserve-order="true">
+  <parameter name="browser" value="chrome" ></parameter>
+    <classes>
+      <class name="TestScripts.CreateprodwithMarketinggroup"/>
+      <class name="TestScripts.Createproductwithsupportgroup"/>
+      <class name="TestScripts.CreateproductwithquickCreate"/>
+      <class name="TestScripts.Createproductbyproductlink"/>
+    </classes>
+  </test> <!-- Test -->
+  
+    <test thread-count="5" name="firfoxTest" preserve-order="true">
+  <parameter name="BROWSER" value="firefox" ></parameter>
+    <classes>
+      <class name="TestScripts.CreateprodwithMarketinggroup"/>
+      <class name="TestScripts.Createproductwithsupportgroup"/>
+      <class name="TestScripts.CreateproductwithquickCreate"/>
+      <class name="TestScripts.Createproductbyproductlink"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  
+</suite> <!-- Suite -->

@@ -1,0 +1,64 @@
+package com.generic;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+public class Listner implements ITestListener{
+
+	public void onFinish(ITestContext res) {
+		String name = res.getName();
+        System.out.println("****"+name+"suit Exceution finish****");
+
+		
+	}
+
+	public void onStart(ITestContext res) {
+             String name = res.getName();	
+             System.out.println("****"+name+"suit Exceution start****");
+	}
+
+	public void onTestFailedButWithinSuccessPercentage(ITestResult res) {
+
+	}
+
+	public void onTestFailure(ITestResult res) {
+        String name = res.getName();
+        System.out.println(name +"Test failed");
+
+		//screenshot capturing
+		EventFiringWebDriver efwb=new EventFiringWebDriver(Baseclass.driver1);
+		 File screenshot = efwb.getScreenshotAs(OutputType.FILE);
+		 try {
+			 FileUtils.copyFile(screenshot, new File("./screenshot/"+ name +".png"));
+		 }catch(IOException e) {
+			 e.printStackTrace();
+		 }
+		
+		
+	}
+
+	public void onTestSkipped(ITestResult res) {
+        String name = res.getName();
+        System.out.println(name +"Test skipped");
+	}
+
+	public void onTestStart(ITestResult res) {
+        String name = res.getName();
+        System.out.println(name +"Test start");
+		
+	}
+
+	public void onTestSuccess(ITestResult res) {
+        String name = res.getName();
+        System.out.println(name +"Test end");
+		
+	}
+
+}

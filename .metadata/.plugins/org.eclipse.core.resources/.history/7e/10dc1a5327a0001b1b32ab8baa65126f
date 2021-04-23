@@ -1,0 +1,32 @@
+package TestScripts;
+
+import org.testng.annotations.Test;
+
+import com.generic.Baseclass;
+import com.pomrepop.CreateNewproductpage;
+import com.pomrepop.Homepage;
+import com.pomrepop.productpage;
+
+public class Createproductbyproductlink extends Baseclass{
+	
+	@Test
+	public void createNewprodbyprodlink() {
+		String prodname = e.readdatafromExcel("EXCELTESTDATASHEET", 16, 3);
+		
+		//click on product link in homepage
+	     Homepage hp=new Homepage(driver);
+	     hp.getProductlink().click();
+	     
+	     //click on + icon
+	     productpage pp=new productpage(driver);
+	     pp.getProducticon().click();
+	     
+	     //enter productname textfield
+	     CreateNewproductpage cnp=new CreateNewproductpage(driver);
+	     cnp.getProductnametb().sendKeys(prodname);
+	     
+
+		
+	}
+
+}

@@ -1,0 +1,104 @@
+package com.generic;
+
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+
+import com.pomrepop.Homepage;
+import com.pomrepop.Loginpage;
+
+public class Baseclass {
+	
+	public static WebDriver driver;
+	public FileUtility fu=new FileUtility();
+	public ExcelUtility e=new ExcelUtility();
+	public WebdriverUtilities wd=new WebdriverUtilities();
+
+	//Read the data from properties file
+	
+	/*String URL = fu.readdatafrompropertiesfile("url");
+	 String UN = fu.readdatafrompropertiesfile("username");
+	 String PWD = fu.readdatafrompropertiesfile("password");
+ */
+	@BeforeSuite
+	public void beforesuit() throws IOException {
+		
+	}
+	
+	@BeforeClass
+	public void launchbrowser() throws IOException  {
+		String value = fu.readdatafrompropertiesfile("browser");
+		
+		if(value.equals("chrome")) {
+			
+		       //Launching a chrome browser
+		      driver=new ChromeDriver();
+
+		}else if(value.equals("Firefox")){
+			//launch a firefoxdriver
+			driver= new FirefoxDriver();
+		}else if(value.equals("opera")) {
+			//launch a opera browser
+			
+			driver=new OperaDriver();
+		}
+		
+	      
+	      //implicit wait
+	      wd.implicitwait(driver);
+	      
+	      //website url
+	     driver.get(fu.readdatafrompropertiesfile("url"));
+	     
+	     //To maximize a window
+	     wd.maximizebrowser(driver);
+
+
+		
+		
+	}
+	
+	
+	@BeforeMethod
+	public void Login() throws IOException {
+	     //login to application
+	     Loginpage lp=new Loginpage(driver);
+	      lp.logintoapp(fu.readdatafrompropertiesfile("username"), fu.readdatafrompropertiesfile("password"));
+
+
+		
+	}
+	
+	@AfterMethod
+	public void Logout() {
+		//logout from app
+		Homepage hp=new Homepage(driver);
+		hp.signoutapp(driver);
+		
+		
+		
+	}
+	
+	@AfterClass
+	public void closebrowser() {
+		//close browser
+		driver.quit();
+		
+	}
+	
+	@AfterSuite
+	public void Aftersuit() {
+		
+		
+	}
+
+}

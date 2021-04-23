@@ -1,0 +1,39 @@
+package com.pomrepop;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class CreatenewContact {
+	
+	@FindBy(xpath="//select[@name='salutationtype']")
+	private WebElement salutationtypedd;
+    
+	@FindBy(xpath="//input[@name='firstname']")
+	private WebElement firstnametb;
+	
+	@FindBy(xpath="//input[@name='lastname']")
+	private WebElement lastname;
+	
+	@FindBy(xpath="//input[@name='account_id']/following-sibling::img[@title='Select']")
+	private WebElement selectorgname;
+	
+	@FindBy(xpath="//input[@id='search_txt']")
+	private WebElement searchchildtb;
+	
+	@FindBy(xpath="//input[@name='search']")
+	private WebElement searchchildbtn;
+	
+	@FindBy(xpath="//a[text()='TATA motors']")
+	private WebElement selectorgiteminchild;
+	
+	@FindBy(xpath="//input[@id='phone']")
+	private WebElement Mobiletb;
+	
+	public CreatenewContact(WebDriver driver){
+		PageFactory.initElements(driver, this);
+	}
+	
+	
+}

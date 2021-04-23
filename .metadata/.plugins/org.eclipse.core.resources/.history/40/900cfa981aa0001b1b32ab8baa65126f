@@ -1,0 +1,29 @@
+package TestScripts;
+
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import com.generic.Baseclass;
+import com.pomrepop.Homepage;
+
+public class CreateNewproduct extends Baseclass {
+	
+	
+	
+	@Test
+	public void createNewproductwithTeamselling() throws EncryptedDocumentException, IOException {
+		String createnewproduct = e.readdatafromExcel("EXCELTESTDATASHEET", 13, 3);
+		
+		//click on organization link in homepage
+	     Homepage hp=new Homepage(driver);
+	     WebElement quickcreatedd = hp.getQuickcreatedd();
+	     wd.selectbyvalue(driver, quickcreatedd, createnewproduct);
+	     
+
+		
+	}
+
+}

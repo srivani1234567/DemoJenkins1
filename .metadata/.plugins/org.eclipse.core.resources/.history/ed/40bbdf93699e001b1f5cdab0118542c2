@@ -1,0 +1,32 @@
+package com.pomrepop;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Homepage {
+	@FindBy(xpath="//td[@align='center']/a[text()='Organizations']")
+	private WebElement orglink;
+	
+	@FindBy(xpath="//td[@align='center']/a[text()='Contacts']")
+     private WebElement contactlink;
+	
+	
+	public Homepage(WebDriver driver) {
+		
+		PageFactory.initElements(driver, this);
+
+
+	}
+
+
+	public WebElement getOrglink() {
+		return orglink;
+	}
+
+	public WebElement getContactlink() {
+		return contactlink;
+	}
+	
+}

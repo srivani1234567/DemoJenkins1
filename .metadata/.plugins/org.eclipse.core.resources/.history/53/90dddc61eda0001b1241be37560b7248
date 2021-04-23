@@ -1,0 +1,17 @@
+package com.generic;
+
+import org.testng.IRetryAnalyzer;
+import org.testng.ITestResult;
+
+public class Retry implements IRetryAnalyzer {
+      int count=1;
+      int retrycount=3;
+	public boolean retry(ITestResult res) {
+		while(count<retrycount) {
+			count++;
+			return true;
+		}
+		return false;
+	}
+
+}
